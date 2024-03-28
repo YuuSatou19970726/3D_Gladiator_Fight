@@ -6,6 +6,8 @@ public class PlayerAttackInput : MonoBehaviour
 {
     private CharacterAnimations playerAnimation;
 
+    public GameObject attackPoint;
+
     void Awake()
     {
         playerAnimation = GetComponent<CharacterAnimations>();
@@ -45,6 +47,19 @@ public class PlayerAttackInput : MonoBehaviour
             {
                 playerAnimation.Attack_2();
             }
+        }
+    }
+
+    void Activate_AttackPoint()
+    {
+        attackPoint.SetActive(true);
+    }
+
+    void Deactivate_AttackPoint()
+    {
+        if (attackPoint.activeInHierarchy)
+        {
+            attackPoint.SetActive(false);
         }
     }
 }
