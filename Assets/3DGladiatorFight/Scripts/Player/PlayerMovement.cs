@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Movement();
+        Rotate();
     }
 
     void Movement()
@@ -43,6 +44,27 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
 
             characterController.Move(moveDirection * movement_Speed * Time.deltaTime);
+        }
+    }
+
+    void Rotate()
+    {
+        Vector3 rotation_Direction = Vector3.zero;
+
+        if (Input.GetAxis(Axis.HORIZONTAL_AXIS) < 0)
+        {
+            rotation_Direction = transform.TransformDirection(Vector3.left);
+        }
+        else if (Input.GetAxis(Axis.HORIZONTAL_AXIS) > 0)
+        {
+            rotation_Direction = transform.TransformDirection(Vector3.right);
+        }
+
+        if (rotation_Direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation, Quaternion.LookRotation(rotation_Direction),
+                rotateDegreesPerSecond * Time.deltaTime);
         }
     }
 }
