@@ -28,6 +28,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.J))
         {
+            playerAnimation.UnFreezeAnimation();
             playerAnimation.Defend(false);
         }
     }
