@@ -1192,7 +1192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   radius: 1
   damage: 1
 --- !u!1 &6484123182669949045
@@ -1685,6 +1685,7 @@ GameObject:
   - component: {fileID: 1725608429856375407}
   - component: {fileID: 998015219769619691}
   - component: {fileID: 9007546511510806305}
+  - component: {fileID: 8575680573716623972}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -1803,6 +1804,20 @@ MonoBehaviour:
   attack_Distance: 1
   chase_Player_After_Attack_Distance: 1
   attackPoint: {fileID: 6385240076803441148}
+--- !u!114 &8575680573716623972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940641760880621058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d32abe8ea50dfd4bbd10f8be1624780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  isPlayer: 0
 --- !u!1 &9206642225019511869
 GameObject:
   m_ObjectHideFlags: 0
