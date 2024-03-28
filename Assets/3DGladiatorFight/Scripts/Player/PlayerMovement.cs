@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController characterController;
+    private CharacterAnimations playerAnimations;
 
     public float movement_Speed = 3f;
     public float gravity = 9.8f;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        playerAnimations = GetComponent<CharacterAnimations>();
     }
 
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Movement();
         Rotate();
+        AnimationWalk();
     }
 
     void Movement()
@@ -44,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
 
             characterController.Move(moveDirection * movement_Speed * Time.deltaTime);
+        }
+        else
+        {
+            // if we don't have any input to move the character 
+            characterController.Move(Vector3.zero);
         }
     }
 
@@ -65,6 +73,18 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(
                 transform.rotation, Quaternion.LookRotation(rotation_Direction),
                 rotateDegreesPerSecond * Time.deltaTime);
+        }
+    }
+
+    void AnimationWalk()
+    {
+        if (characterController.velocity.sqrMagnitude != 0)
+        {
+            playerAnimations.Walk(true);
+        }
+        else
+        {
+            playerAnimations.Walk(false);
         }
     }
 }

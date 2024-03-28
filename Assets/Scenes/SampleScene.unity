@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a72ddfea66ad4349895488a1dc51dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetPosition: {x: 0, y: 2.25, z: -2}
+  offsetPosition: {x: 0, y: 2.25, z: -3}
 --- !u!1001 &8355330973878144408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,6 +513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 1939363623044487276, guid: 10f3bfb8601ba21438afb9605624b13a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a5f3dc9469ea256459a6ff87f7cb21a3, type: 2}
     - target: {fileID: 3676696713176118363, guid: 10f3bfb8601ba21438afb9605624b13a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -556,8 +560,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 338941864087087994, guid: 10f3bfb8601ba21438afb9605624b13a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8355330973878144410}
   m_SourcePrefab: {fileID: 100100000, guid: 10f3bfb8601ba21438afb9605624b13a, type: 3}
+--- !u!1 &8355330973878144409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 338941864087087994, guid: 10f3bfb8601ba21438afb9605624b13a, type: 3}
+  m_PrefabInstance: {fileID: 8355330973878144408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8355330973878144410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355330973878144409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a017b6fab58b0424ba46afe2d63c5e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
