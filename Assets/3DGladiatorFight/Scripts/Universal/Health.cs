@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -14,6 +15,19 @@ public class Health : MonoBehaviour
 
     public bool isPlayer;
 
+    [SerializeField]
+    private Image health_UI;
+
+    [HideInInspector]
+    public bool shieldActivated;
+
+    private CharacterSoundFX soundFX;
+
+    void Awake()
+    {
+        soundFX = GetComponentInChildren<CharacterSoundFX>();
+    }
+
     void Update()
     {
         if (playerDied)
@@ -24,11 +38,22 @@ public class Health : MonoBehaviour
 
     public void ApplyDamage(float damage)
     {
+        if (shieldActivated)
+            return;
+
         health -= damage;
+
+        if (health_UI != null)
+        {
+            health_UI.fillAmount = health / 100f;
+        }
 
         if (health <= 0)
         {
             health = 0f;
+
+            soundFX.Die();
+
             GetComponent<Animator>().enabled = false;
             // print("The character died");
             StartCoroutine(AllowRotate());
